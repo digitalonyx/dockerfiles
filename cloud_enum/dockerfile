@@ -1,0 +1,8 @@
+FROM ubuntu:latest
+RUN apt-get update
+RUN apt install python3-pip -y
+RUN apt-get install git -y
+RUN git clone https://github.com/initstring/cloud_enum.git
+WORKDIR /cloud_enum
+RUN pip3 install -r ./requirements.txt
+ENTRYPOINT ["python3","cloud_enum.py", "-k"]
