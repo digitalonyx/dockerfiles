@@ -6,7 +6,7 @@ Azure Recon tool developed by NetSPI https://github.com/NetSPI/MicroBurst
 To run the container:
 docker run --rm -it microburst 
 
-`--rm`will automatically remove the container upon exiting.
+`--rm` will automatically remove the container upon exiting.
 
 Enumerate against a target:
 
