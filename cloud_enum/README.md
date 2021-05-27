@@ -2,7 +2,7 @@
 
 Simple docker container for cloud_enum built from a ubuntu image
 
-cloud_enum is Multi-cloud recon script qritten in python created by https://github.com/initstring
+cloud_enum is multi-cloud recon script written in python created by https://github.com/initstring
 
 
 ## Usage
