@@ -11,11 +11,14 @@ docker run --rm -it microburst
 Enumerate against a target:
 
 #Enumerate Services using MicroBurst
+
 `Invoke-EnumerateAzureSubDomains -Base <targetname>`
 
 #Look for Public Blob containers and Objects
+
 `Invoke-EnumerateAzureBlobs -Base <targetname>`
 
 #Web Request to exposed public Azure EnumerateAzureBlobs
+
 `Invoke-WebRequest -Uri "domain found in previous Enumerate" -Outfile "whatever.txt"`
 
