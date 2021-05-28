@@ -1,0 +1,41 @@
+FROM ubuntu:latest
+
+# Update the list of packages
+RUN apt-get update
+RUN apt install python3-pip python3-virtualenv python3-dev libbz2-dev zlib1g-dev -y
+
+# Install Git
+RUN apt-get install git -y
+
+# Install wget
+RUN apt-get install wget -y
+
+# Install bash
+RUN apt-get install bash -y
+
+# DIRECTORY STRUCTURE
+RUN echo "Creating directory structure"
+RUN mkdir /opt/mac_apt
+WORKDIR /opt/mac_apt
+
+# CLONE mac_apt
+RUN echo "Cloning mac_apt"
+RUN git clone https://github.com/ydkhatri/mac_apt
+
+# Install pyaff4
+RUN pip3 install mac_apt/other_dependencies/pyaff4-0.31-yk.zip
+
+# Install pyewf
+RUN wget https://github.com/libyal/libewf-legacy/releases/download/20140808/libewf-20140808.tar.gz
+RUN tar xzf libewf-20140808.tar.gz
+RUN rm libewf-20140808.tar.gz
+
+# Compile and Install
+WORKDIR /opt/mac_apt/libewf-20140808
+RUN python3 setup.py build
+RUN python3 setup.py install
+WORKDIR /opt/mac_apt/mac_apt
+
+
+#Install other dependencies
+RUN pip3 install anytree biplist construct==2.9.45 xlsxwriter plistutils kaitaistruct lz4 pytsk3==20170802 libvmdk-python==20181227 pycryptodome cryptography pybindgen==0.21.0 pillow pyliblzfse nska_deserialize
